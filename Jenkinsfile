@@ -1,12 +1,17 @@
-@Library("Shared") _
+
 pipeline {
     agent { label "agent" }
 
-    environment {
-        EMAIL_RECIPIENTS = "arpitverma2410@gmail.com"
-    }
+
 
     stages {
+
+         stage('init') {
+      scripts {
+        library "Shared"
+      }
+   }
+
         stage("hello") {
             steps {
                 script {
