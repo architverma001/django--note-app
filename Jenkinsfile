@@ -12,7 +12,7 @@ pipeline {
     stage('init') {
             steps {
                 script {
-                    echo "Initializing pipeline for branch: ${env.BRANCH_NAME}"
+                    echo "Initializing pipeline for branch: ${env.GIT_BRANCH}"
                     
                     // ✅ Dynamically load the shared library based on the branch
                     library("Shared@${env.GIT_BRANCH}")
