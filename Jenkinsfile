@@ -15,7 +15,8 @@ pipeline {
                     echo "Initializing pipeline for branch: ${env.BRANCH_NAME}"
                     
                     // ✅ Dynamically load the shared library based on the branch
-                    library("Shared@${env.BRANCH_NAME}")
+                    library("Shared@${env.GIT_BRANCH}")
+
                 }
             }
         }
