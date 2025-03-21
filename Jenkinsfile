@@ -1,4 +1,4 @@
-@Library("Shared@${env.BRANCH_NAME}") _
+
 pipeline {
     agent { label "agent" }
 
@@ -7,6 +7,19 @@ pipeline {
     }
 
     stages {
+
+
+    stage('init') {
+            steps {
+                script {
+                    echo "Initializing pipeline for branch: ${env.BRANCH_NAME}"
+                    
+                    // ✅ Dynamically load the shared library based on the branch
+                    library("Shared@${env.BRANCH_NAME}")
+                }
+            }
+        }
+
         stage("hello") {
             steps {
                 script {
